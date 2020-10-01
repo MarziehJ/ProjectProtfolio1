@@ -4,22 +4,35 @@ public class Circle extends Shape
         implements GeoFiguresComputable{
     @Override
     public double computeArea() {
-        return 0;
+
+        return Math.PI * Math.pow(radius, 2);
     }
 
     @Override
     public Point computeCenter() {
-        return null;
+        return this.center;
     }
 
     @Override
     public double computeCircumference() {
-        return 0;
+
+        return 2 * Math.PI * this.radius;
     }
 
     @Override
     public boolean isPointInside(Point point) {
-        return false;
+        double distance = CoordinateHelper.computePointsDistance(point, this.center);
+        return distance <= radius;
+    }
+
+    public Point center;
+    public double radius;
+
+    public Circle(Point center, double radius)
+    {
+        this.center = center;
+        this.radius = radius;
+
     }
 
 }
