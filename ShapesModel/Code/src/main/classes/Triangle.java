@@ -3,6 +3,13 @@ package main.classes;
 
 public class Triangle extends Shape
         implements GeoFiguresComputable {
+    /* computeArea() -
+     * Find the area of a triangle. This function uses the 1/2 determinant
+     * method. Given three points (x1, y1), (x2, y2), (x3, y3):
+     *             | x1 y1 1 |
+     * Area = .5 * | x2 y2 1 |
+     *             | x3 y3 1 |
+     */
     @Override
     public double computeArea() {
         return Math.abs((point1.X * (point2.Y - point3.Y)) +
@@ -10,6 +17,7 @@ public class Triangle extends Shape
                 (point3.X * (point1.Y - point2.Y))) / 2;
     }
 
+   
     @Override
     public Point computeCenter() {
         return new Point((point1.X + point2.X + point3.X) / 3,
@@ -23,6 +31,11 @@ public class Triangle extends Shape
                 Math.sqrt(Math.pow(point3.X - point1.X, 2) + Math.pow(point3.Y - point1.Y, 2));
     }
 
+    /* IsPointInTri() -
+     * Used by isPointInside(). Function takes the point and the triangle's
+     * vertices. Checking on which side of the half-plane created by the edges the point is.
+     *
+     */
     @Override
     public boolean isPointInside(Point point) {
         double d1, d2, d3;
