@@ -17,10 +17,18 @@ public class gCircle extends Circle {
 
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        Ellipse2D.Double circle = new Ellipse2D.Double(center.X, center.Y, 50, 50);
+        Ellipse2D.Double circle = new Ellipse2D.Double(getCenter().X, getCenter().Y, getRadius(), getRadius());
 
-        g2d.setColor(Color.GRAY);
+        g2d.setColor(Color.DARK_GRAY);
         g2d.fill(circle);
+
+        //Ellipse2D.Double centre = new Ellipse2D.Double( computeCenter().X ,  computeCenter().Y , 5, 5);
+        //g2d.setColor(Color.RED);
+        //g2d.fill(centre);
+        g2d.setColor(Color.RED);
+        g2d.drawString("Area: " + computeArea(), (int)getCenter().X + 20, (int)getCenter().Y + 20);
+        g2d.drawString("circumference: " + computeCircumference(), (int)getCenter().X + 10, (int)getCenter().Y + 10);
+
     }
 
 }
