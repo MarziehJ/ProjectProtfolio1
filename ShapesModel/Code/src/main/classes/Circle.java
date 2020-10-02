@@ -25,14 +25,31 @@ public class Circle extends Shape
         return distance <= radius;
     }
 
-    public Point center;
-    public double radius;
+    @Override
+    public void moveIn2DSpace(double X, double Y) {
+        center.X += X;
+        center.Y += Y;
+    }
+
+    Point center;
+    double radius;
 
     public Circle(Point center, double radius)
     {
+        if (radius <= 0)
+            throw new IllegalArgumentException ("raduis should have positive value");
+
         this.center = center;
         this.radius = radius;
 
+    }
+
+    public Point getCenter() {
+        return center;
+    }
+
+    public double getRadius() {
+        return radius;
     }
 
 }

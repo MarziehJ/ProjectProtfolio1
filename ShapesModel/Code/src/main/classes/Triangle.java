@@ -51,13 +51,36 @@ public class Triangle extends Shape
         return !(has_neg && has_pos);
     }
 
+    @Override
+    public void moveIn2DSpace(double X, double Y) {
+        point1.X += X; point1.Y += Y;
+        point2.X += X; point2.Y += Y;
+        point3.X += X; point3.Y += Y;
+    }
+
     Point point1;
     Point point2;
     Point point3;
 
     public Triangle(Point point1, Point point2, Point point3) {
+        if ((point1.X == point2.X && point3.X == point2.X) ||
+            (point1.Y == point2.Y && point1.Y == point3.Y))
+            throw new IllegalArgumentException ("Input points are not valid to create triangle");
+
         this.point1 = point1;
         this.point2 = point2;
         this.point3 = point3;
+    }
+
+    public Point getPoint1() {
+        return point1;
+    }
+
+    public Point getPoint2() {
+        return point2;
+    }
+
+    public Point getPoint3() {
+        return point3;
     }
 }
