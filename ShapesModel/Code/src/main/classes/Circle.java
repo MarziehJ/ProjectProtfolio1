@@ -31,6 +31,11 @@ public class Circle extends Shape
         center.Y += Y;
     }
 
+    @Override
+    public String getName() {
+        return "Circle";
+    }
+
     Point center;
     double radius;
 
