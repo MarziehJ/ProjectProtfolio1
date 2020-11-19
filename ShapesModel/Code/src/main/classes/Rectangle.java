@@ -32,7 +32,11 @@ public class Rectangle extends Shape
     public void moveIn2DSpace(double X, double Y) {
         point1.X += X;  point1.Y += Y;
         point2.X += X;  point2.Y += Y;
+    }
 
+    @Override
+    public String getName() {
+        return "Rectangle";
     }
 
     Point point1;

@@ -54,7 +54,7 @@ class TriangleTest {
     }
 
     @org.junit.jupiter.api.Test
-    void isPointInsideInside() {
+    void isPointInside() {
         Triangle triangle = new Triangle(new Point(1,1),
                 new Point(3, 1),
                 new Point(1,4));

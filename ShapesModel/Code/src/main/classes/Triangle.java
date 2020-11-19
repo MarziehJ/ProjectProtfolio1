@@ -58,6 +58,11 @@ public class Triangle extends Shape
         point3.X += X; point3.Y += Y;
     }
 
+    @Override
+    public String getName() {
+        return "Triangle";
+    }
+
     Point point1;
     Point point2;
     Point point3;
